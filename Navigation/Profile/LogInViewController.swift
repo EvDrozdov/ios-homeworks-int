@@ -100,8 +100,21 @@ class LogInViewController: UIViewController {
     
     @objc func moveToProfile() {
         
-        let viewController = ProfileViewController()
-        navigationController?.pushViewController(viewController, animated: true)
+#if DEBUG
+        let choiseLoginService = TestUserService().checkLogin(login: loginTextField.text!, pass: passwordTextField.text!)
+#else
+        let choiseLoginService = CurrentUserService().checkLogin(login: loginTextField.text!, pass: passwordTextField.text!)
+#endif
+        if let checkedUser = choiseLoginService {
+            let profileVC = ProfileViewController()
+            profileVC.newUser = checkedUser
+            navigationController?.pushViewController(profileVC, animated: true)
+        }
+        else {
+            let alert = UIAlertController(title: "Unknown login", message: "Please, enter correct user login", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Cancel", style: .cancel))
+            self.present(alert, animated: true)
+        }
         
     }
     
@@ -115,32 +128,32 @@ class LogInViewController: UIViewController {
         scrollView.addSubview(vkImageView)
         
         NSLayoutConstraint.activate([
-
+            
             scrollView.topAnchor.constraint(equalTo: view.topAnchor),
             scrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             scrollView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             scrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
-
-
+            
+            
             vkImageView.topAnchor.constraint(equalTo: scrollView.topAnchor, constant: 120),
             vkImageView.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor),
             vkImageView.widthAnchor.constraint(equalToConstant: 100),
             vkImageView.heightAnchor.constraint(equalToConstant: 100),
             vkImageView.bottomAnchor.constraint(equalTo: textFieldStackView.topAnchor, constant: -120),
-
-
+            
+            
             textFieldStackView.topAnchor.constraint(equalTo: vkImageView.bottomAnchor, constant: 120),
             textFieldStackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16),
             textFieldStackView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
             textFieldStackView.heightAnchor.constraint(equalToConstant: 100),
-
-
+            
+            
             loginButton.topAnchor.constraint(equalTo: textFieldStackView.bottomAnchor, constant: 16),
             loginButton.trailingAnchor.constraint(equalTo: textFieldStackView.trailingAnchor),
             loginButton.leadingAnchor.constraint(equalTo: textFieldStackView.leadingAnchor),
             loginButton.heightAnchor.constraint(equalToConstant: 50)
-
-            ])
+            
+        ])
         
         
     }
@@ -166,20 +179,20 @@ class LogInViewController: UIViewController {
             
         }
     }
+    
+    @objc private func didHideKeyboard(_ notification: Notification) {
         
-        @objc private func didHideKeyboard(_ notification: Notification) {
-            
-            hideKeyboard()
-            
-        }
-        
-        @objc private func hideKeyboard() {
-            
-            view.endEditing(true)
-            scrollView.setContentOffset(.zero, animated: true)
-            
-        }
+        hideKeyboard()
         
     }
     
+    @objc private func hideKeyboard() {
+        
+        view.endEditing(true)
+        scrollView.setContentOffset(.zero, animated: true)
+        
+    }
+    
+}
+
 

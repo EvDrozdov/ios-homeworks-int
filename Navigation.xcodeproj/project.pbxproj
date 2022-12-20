@@ -15,6 +15,7 @@
 		F792BE14292E67B000A2A43F /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = F75EDBC028FD5C2200D3C913 /* Post.swift */; };
 		F7A3D86728EC2790005B602F /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7A3D86628EC2790005B602F /* LogInViewController.swift */; };
 		F7BF319A2906DFAF00A30A52 /* PostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7BF31992906DFAF00A30A52 /* PostTableViewCell.swift */; };
+		F7D42C732951FEA00034B03B /* Users.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7D42C722951FEA00034B03B /* Users.swift */; };
 		F7D9980428BE37D000E0A0A7 /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7D9980328BE37D000E0A0A7 /* FeedViewController.swift */; };
 		F7D9980628BE37EE00E0A0A7 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7D9980528BE37EE00E0A0A7 /* ProfileViewController.swift */; };
 		F7D9980828BE399700E0A0A7 /* InfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7D9980728BE399700E0A0A7 /* InfoViewController.swift */; };
@@ -35,9 +36,10 @@
 		F75F767C2876238D007A8D76 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F75F767E2876238D007A8D76 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F773CB3F28CE1212008647CA /* ProfileHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileHeaderView.swift; sourceTree = "<group>"; };
-		F792BE12292E675700A2A43F /* Navigation.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; name = Navigation.app; path = "/Users/desmond/Desktop/Project/ios-homeworks/build/Debug-iphoneos/Navigation.app"; sourceTree = "<absolute>"; };
 		F7A3D86628EC2790005B602F /* LogInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
 		F7BF31992906DFAF00A30A52 /* PostTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostTableViewCell.swift; sourceTree = "<group>"; };
+		F7D42C702951F9E90034B03B /* Navigation.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Navigation.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		F7D42C722951FEA00034B03B /* Users.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Users.swift; sourceTree = "<group>"; };
 		F7D9980328BE37D000E0A0A7 /* FeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewController.swift; sourceTree = "<group>"; };
 		F7D9980528BE37EE00E0A0A7 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		F7D9980728BE399700E0A0A7 /* InfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoViewController.swift; sourceTree = "<group>"; };
@@ -75,6 +77,7 @@
 				F75F766F2876238C007A8D76 /* Navigation */,
 				F7F8C85E292D12D700AC17B0 /* StorageService.framework */,
 				F7F8C85F292D12D700AC17B0 /* StorageService */,
+				F7D42C702951F9E90034B03B /* Navigation.app */,
 			);
 			sourceTree = "<group>";
 		};
@@ -105,8 +108,17 @@
 				F7E8B6FC2910015D00D4BFE7 /* PhotosTableViewCell.swift */,
 				F7E8B6FE2910023900D4BFE7 /* PhotosViewController.swift */,
 				F7E8B7002910031200D4BFE7 /* PhotosCollectionViewCell.swift */,
+				F7D42C712951FE7B0034B03B /* Users */,
 			);
 			path = Profile;
+			sourceTree = "<group>";
+		};
+		F7D42C712951FE7B0034B03B /* Users */ = {
+			isa = PBXGroup;
+			children = (
+				F7D42C722951FEA00034B03B /* Users.swift */,
+			);
+			path = Users;
 			sourceTree = "<group>";
 		};
 		F7F8C85F292D12D700AC17B0 /* StorageService */ = {
@@ -146,7 +158,7 @@
 			);
 			name = Navigation;
 			productName = Navigation;
-			productReference = F792BE12292E675700A2A43F /* Navigation.app */;
+			productReference = F7D42C702951F9E90034B03B /* Navigation.app */;
 			productType = "com.apple.product-type.application";
 		};
 		F7F8C85D292D12D700AC17B0 /* StorageService */ = {
@@ -236,6 +248,7 @@
 				F7D9980428BE37D000E0A0A7 /* FeedViewController.swift in Sources */,
 				F7D9980628BE37EE00E0A0A7 /* ProfileViewController.swift in Sources */,
 				F75F76732876238C007A8D76 /* SceneDelegate.swift in Sources */,
+				F7D42C732951FEA00034B03B /* Users.swift in Sources */,
 				F7D9980828BE399700E0A0A7 /* InfoViewController.swift in Sources */,
 				F7BF319A2906DFAF00A30A52 /* PostTableViewCell.swift in Sources */,
 				F7E8B6FF2910023900D4BFE7 /* PhotosViewController.swift in Sources */,
