@@ -14,6 +14,7 @@ class ProfileViewController: UIViewController{
     
     var startPoint: CGPoint?
     var cornerRadiusAvatar: CGFloat?
+    var newUser: User? = nil
     
     public lazy var catImageView: UIImageView = {
         let avatarImageView = UIImageView()
@@ -87,7 +88,7 @@ class ProfileViewController: UIViewController{
 #if DEBUG
         view.backgroundColor = .green
 #else
-        view.backgroundColor = .systemGray
+        view.backgroundColor = .white
 #endif
         
         
@@ -195,6 +196,10 @@ extension ProfileViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         if section == 0{
             guard let header = tableView.dequeueReusableHeaderFooterView(withIdentifier: "HeaderView")as? ProfileHeaderView else { return nil }
+            if let newUser = newUser {
+                header.setup(fullName: newUser.fullName, avatarimage: newUser.avatarImage, status: newUser.status)}
+            
+            
             let tapOnAvatarImageGusture = UITapGestureRecognizer(target: self, action: #selector(tapOnAvatarImage))
             header.catAvatarImage.addGestureRecognizer(tapOnAvatarImageGusture)
             header.catAvatarImage.isUserInteractionEnabled = true
