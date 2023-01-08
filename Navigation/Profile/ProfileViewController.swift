@@ -9,6 +9,7 @@
 import UIKit
 
 
+
 class ProfileViewController: UIViewController{
     
     var startPoint: CGPoint?
@@ -177,6 +178,9 @@ extension ProfileViewController: UITableViewDelegate, UITableViewDataSource {
         cellTwo.postImageView.image = UIImage(named: movies[indexPath.row].image)
         cellTwo.descriptionLabel.text = movies[indexPath.row].description
         cellTwo.likesViewsLabel.text = "views: \(movies[indexPath.row].views) likes: \(movies[indexPath.row].likes)"
+        
+        let post = movies[indexPath.row]
+        cellTwo.setup(with: post)
         return indexPath.section == 0 ? cellOne : cellTwo
     }
     
