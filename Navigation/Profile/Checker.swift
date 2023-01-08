@@ -9,7 +9,7 @@ import UIKit
 
 import UIKit
 
- class Checker {
+final  class Checker {
      static var shared = Checker()
 
      private let loginCheck: String = "Evgeny"

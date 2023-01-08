@@ -10,6 +10,7 @@ import UIKit
 class LogInViewController: UIViewController {
     
     var loginDelegate: LoginViewControllerDelegate?
+    static var loginFactoryDelegate: LoginFactory?
     
     private lazy var scrollView: UIScrollView = {
         let scrollView = UIScrollView()
@@ -104,7 +105,7 @@ class LogInViewController: UIViewController {
     
     @objc func moveToProfile() {
         
-        guard let checkResults = loginDelegate?.check(login: loginTextField.text!, pass: passwordTextField.text!) else {
+        guard let checkResults = LogInViewController.loginFactoryDelegate?.makeLoginInspector().check(login: loginTextField.text!, pass: passwordTextField.text!) else {
             return }
         
         if checkResults {

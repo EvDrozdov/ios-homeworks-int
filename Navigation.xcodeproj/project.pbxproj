@@ -10,6 +10,7 @@
 		F71D6D19296B35400090A888 /* Checker.swift in Sources */ = {isa = PBXBuildFile; fileRef = F71D6D18296B35400090A888 /* Checker.swift */; };
 		F71D6D1B296B35A80090A888 /* LoginInspector.swift in Sources */ = {isa = PBXBuildFile; fileRef = F71D6D1A296B35A80090A888 /* LoginInspector.swift */; };
 		F71D6D1D296B35ED0090A888 /* LoginViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F71D6D1C296B35ED0090A888 /* LoginViewControllerDelegate.swift */; };
+		F71D6D1F296B3FC90090A888 /* LoginFactore.swift in Sources */ = {isa = PBXBuildFile; fileRef = F71D6D1E296B3FC90090A888 /* LoginFactore.swift */; };
 		F75F76712876238C007A8D76 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F75F76702876238C007A8D76 /* AppDelegate.swift */; };
 		F75F76732876238C007A8D76 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F75F76722876238C007A8D76 /* SceneDelegate.swift */; };
 		F773CB4128CE1212008647CA /* ProfileHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F773CB3F28CE1212008647CA /* ProfileHeaderView.swift */; };
@@ -31,6 +32,7 @@
 		F71D6D18296B35400090A888 /* Checker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Checker.swift; sourceTree = "<group>"; };
 		F71D6D1A296B35A80090A888 /* LoginInspector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginInspector.swift; sourceTree = "<group>"; };
 		F71D6D1C296B35ED0090A888 /* LoginViewControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewControllerDelegate.swift; sourceTree = "<group>"; };
+		F71D6D1E296B3FC90090A888 /* LoginFactore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginFactore.swift; sourceTree = "<group>"; };
 		F75EDBC028FD5C2200D3C913 /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		F75F76702876238C007A8D76 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F75F76722876238C007A8D76 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -100,6 +102,7 @@
 			children = (
 				F773CB3F28CE1212008647CA /* ProfileHeaderView.swift */,
 				F7D9980528BE37EE00E0A0A7 /* ProfileViewController.swift */,
+				F71D6D1E296B3FC90090A888 /* LoginFactore.swift */,
 				F7A3D86628EC2790005B602F /* LogInViewController.swift */,
 				F7BF31992906DFAF00A30A52 /* PostTableViewCell.swift */,
 				F7E8B6FC2910015D00D4BFE7 /* PhotosTableViewCell.swift */,
@@ -242,6 +245,7 @@
 				F7D9980628BE37EE00E0A0A7 /* ProfileViewController.swift in Sources */,
 				F75F76732876238C007A8D76 /* SceneDelegate.swift in Sources */,
 				F7D42C732951FEA00034B03B /* Users.swift in Sources */,
+				F71D6D1F296B3FC90090A888 /* LoginFactore.swift in Sources */,
 				F7D9980828BE399700E0A0A7 /* InfoViewController.swift in Sources */,
 				F7BF319A2906DFAF00A30A52 /* PostTableViewCell.swift in Sources */,
 				F7E8B6FF2910023900D4BFE7 /* PhotosViewController.swift in Sources */,
