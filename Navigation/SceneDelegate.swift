@@ -26,6 +26,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let factory = MyLoginFactory()
         let loginInspector = factory.makeLoginInspector()
         let loginVC = LogInViewController()
+        loginVC.loginDelegate = loginInspector
         
         
         LogInViewController.loginFactoryDelegate = MyLoginFactory()
