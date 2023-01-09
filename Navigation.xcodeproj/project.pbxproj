@@ -41,7 +41,7 @@
 		F75F767C2876238D007A8D76 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F75F767E2876238D007A8D76 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F76B28FE296C9A29008B6F69 /* Navigation.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Navigation.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		F76B28FF296C9A29008B6F69 /* StorageService.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = StorageService.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F76B28FF296C9A29008B6F69 /* StorageService.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = StorageService.framework; path = "/Users/desmond/Desktop/Project/ios-homeworks/build/Debug-iphoneos/StorageService.framework"; sourceTree = "<absolute>"; };
 		F773CB3F28CE1212008647CA /* ProfileHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileHeaderView.swift; sourceTree = "<group>"; };
 		F7A3D86628EC2790005B602F /* LogInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
 		F7BF31992906DFAF00A30A52 /* PostTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostTableViewCell.swift; sourceTree = "<group>"; };
@@ -78,7 +78,6 @@
 			children = (
 				F75F766F2876238C007A8D76 /* Navigation */,
 				F76B28FE296C9A29008B6F69 /* Navigation.app */,
-				F76B28FF296C9A29008B6F69 /* StorageService.framework */,
 			);
 			sourceTree = "<group>";
 		};
