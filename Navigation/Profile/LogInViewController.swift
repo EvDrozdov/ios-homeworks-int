@@ -9,6 +9,9 @@ import UIKit
 
 class LogInViewController: UIViewController {
     
+    var loginDelegate: LoginViewControllerDelegate?
+    static var loginFactoryDelegate: LoginFactory?
+    
     private lazy var scrollView: UIScrollView = {
         let scrollView = UIScrollView()
         scrollView.translatesAutoresizingMaskIntoConstraints = false
@@ -44,6 +47,7 @@ class LogInViewController: UIViewController {
         let textField = UITextField()
         textField.backgroundColor = .systemGray6
         textField.placeholder = "Email or Phone"
+        textField.text = "Evgeny"
         textField.textColor = .black
         textField.font = .systemFont(ofSize: 16, weight: .regular)
         textField.autocorrectionType = .no
@@ -53,6 +57,7 @@ class LogInViewController: UIViewController {
     
     private lazy var passwordTextField: UITextField = {
         let pwTextField = UITextField()
+        pwTextField.text = "Drozdov"
         pwTextField.backgroundColor = .systemGray6
         pwTextField.placeholder = "Password"
         pwTextField.textColor = .black
@@ -100,14 +105,13 @@ class LogInViewController: UIViewController {
     
     @objc func moveToProfile() {
         
-#if DEBUG
-        let choiseLoginService = TestUserService().checkLogin(login: loginTextField.text!, pass: passwordTextField.text!)
-#else
-        let choiseLoginService = CurrentUserService().checkLogin(login: loginTextField.text!, pass: passwordTextField.text!)
-#endif
-        if let checkedUser = choiseLoginService {
+        guard let checkResults = LogInViewController.loginFactoryDelegate?.makeLoginInspector().check(login: loginTextField.text!, pass: passwordTextField.text!) else {
+            return }
+        
+        if checkResults {
+            guard let user = Checker.shared.user else { return }
             let profileVC = ProfileViewController()
-            profileVC.newUser = checkedUser
+            profileVC.newUser = user
             navigationController?.pushViewController(profileVC, animated: true)
         }
         else {
