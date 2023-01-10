@@ -8,6 +8,7 @@
 import UIKit
 
 
+
 class PhotosCollectionViewCell: UICollectionViewCell {
     
     static var identifier: String = "photosTableViewCell"

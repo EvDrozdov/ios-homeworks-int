@@ -14,6 +14,7 @@
 		F75F76712876238C007A8D76 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F75F76702876238C007A8D76 /* AppDelegate.swift */; };
 		F75F76732876238C007A8D76 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F75F76722876238C007A8D76 /* SceneDelegate.swift */; };
 		F773CB4128CE1212008647CA /* ProfileHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F773CB3F28CE1212008647CA /* ProfileHeaderView.swift */; };
+		F78F6D55296DED020058C9B8 /* iOSIntPackage in Frameworks */ = {isa = PBXBuildFile; productRef = F78F6D54296DED020058C9B8 /* iOSIntPackage */; };
 		F792BE0A292E62E700A2A43F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F75F76792876238D007A8D76 /* Assets.xcassets */; };
 		F792BE14292E67B000A2A43F /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = F75EDBC028FD5C2200D3C913 /* Post.swift */; };
 		F7A3D86728EC2790005B602F /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7A3D86628EC2790005B602F /* LogInViewController.swift */; };
@@ -41,8 +42,8 @@
 		F75F767C2876238D007A8D76 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F75F767E2876238D007A8D76 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F76B28FE296C9A29008B6F69 /* Navigation.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Navigation.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		F76B28FF296C9A29008B6F69 /* StorageService.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = StorageService.framework; path = "/Users/desmond/Desktop/Project/ios-homeworks/build/Debug-iphoneos/StorageService.framework"; sourceTree = "<absolute>"; };
 		F773CB3F28CE1212008647CA /* ProfileHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileHeaderView.swift; sourceTree = "<group>"; };
+		F78F6D52296DEC580058C9B8 /* StorageService.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = StorageService.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F7A3D86628EC2790005B602F /* LogInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
 		F7BF31992906DFAF00A30A52 /* PostTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostTableViewCell.swift; sourceTree = "<group>"; };
 		F7D42C722951FEA00034B03B /* Users.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Users.swift; sourceTree = "<group>"; };
@@ -60,6 +61,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F78F6D55296DED020058C9B8 /* iOSIntPackage in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -78,6 +80,7 @@
 			children = (
 				F75F766F2876238C007A8D76 /* Navigation */,
 				F76B28FE296C9A29008B6F69 /* Navigation.app */,
+				F78F6D52296DEC580058C9B8 /* StorageService.framework */,
 			);
 			sourceTree = "<group>";
 		};
@@ -152,6 +155,9 @@
 			dependencies = (
 			);
 			name = Navigation;
+			packageProductDependencies = (
+				F78F6D54296DED020058C9B8 /* iOSIntPackage */,
+			);
 			productName = Navigation;
 			productReference = F76B28FE296C9A29008B6F69 /* Navigation.app */;
 			productType = "com.apple.product-type.application";
@@ -171,7 +177,7 @@
 			);
 			name = StorageService;
 			productName = StorageService;
-			productReference = F76B28FF296C9A29008B6F69 /* StorageService.framework */;
+			productReference = F78F6D52296DEC580058C9B8 /* StorageService.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 /* End PBXNativeTarget section */
@@ -201,6 +207,9 @@
 				Base,
 			);
 			mainGroup = F75F76642876238C007A8D76;
+			packageReferences = (
+				F78F6D53296DED020058C9B8 /* XCRemoteSwiftPackageReference "iOSIntPackage" */,
+			);
 			productRefGroup = F75F76642876238C007A8D76;
 			projectDirPath = "";
 			projectRoot = "";
@@ -547,6 +556,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		F78F6D53296DED020058C9B8 /* XCRemoteSwiftPackageReference "iOSIntPackage" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/TrueMax/iOSIntPackage.git";
+			requirement = {
+				branch = imagepublisher;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		F78F6D54296DED020058C9B8 /* iOSIntPackage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F78F6D53296DED020058C9B8 /* XCRemoteSwiftPackageReference "iOSIntPackage" */;
+			productName = iOSIntPackage;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = F75F76652876238C007A8D76 /* Project object */;
 }

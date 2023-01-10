@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import iOSIntPackage
 
 
 
@@ -14,6 +15,9 @@ class PhotosViewController: UIViewController {
     var textTitle: String?
     
     private let postImage = PostImage.setupImages()
+    
+    private var recivedImages: [UIImage] = []
+    private let imagesFacade = ImagePublisherFacade()
     
     private enum Constants {
         static let numberOfLine: CGFloat = 3
@@ -42,6 +46,28 @@ class PhotosViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupCollectionView()
+        makeData()
+        setupObserver()
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        imagesFacade.removeSubscription(for: self)
+    }
+    
+    private var data : [String] = []
+    private func makeData() {
+        for num in 1...20 {
+            data.append("\(num).jpg")
+        }
+    }
+    
+    private func setupObserver() {
+        var array2: [UIImage] = []
+        imagesFacade.subscribe(self)
+        data.forEach { i in array2.append(UIImage(named: i)!)
+            
+        }
+        imagesFacade.addImagesWithTimer(time: 2, repeat: 20, userImages: array2)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -72,12 +98,12 @@ class PhotosViewController: UIViewController {
 }
 extension PhotosViewController: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return postImage.count
+        return recivedImages.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PhotoCell", for: indexPath) as? PhotosCollectionViewCell else { return collectionView.dequeueReusableCell(withReuseIdentifier: "defaultcell", for: indexPath)}
-        let avaImage = postImage[indexPath.item]
+        let avaImage = postImage[indexPath.row]
         cell.setup(with: avaImage)
         return cell
     }
@@ -94,5 +120,12 @@ extension PhotosViewController: UICollectionViewDataSource, UICollectionViewDele
         let itemwidth = floor(needed / Constants.numberOfLine)
         print(itemwidth)
         return CGSize(width: itemwidth, height: itemwidth)
+    }
+}
+
+extension PhotosViewController: ImageLibrarySubscriber {
+    func receive(images: [UIImage]) {
+        recivedImages = images
+        collectionView.reloadData()
     }
 }
