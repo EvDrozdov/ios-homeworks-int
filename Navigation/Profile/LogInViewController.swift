@@ -9,6 +9,9 @@ import UIKit
 
 class LogInViewController: UIViewController {
     
+    var loginDelegate: LoginViewControllerDelegate?
+    static var loginFactoryDelegate: LoginFactory?
+    
     private lazy var scrollView: UIScrollView = {
         let scrollView = UIScrollView()
         scrollView.translatesAutoresizingMaskIntoConstraints = false
@@ -44,6 +47,7 @@ class LogInViewController: UIViewController {
         let textField = UITextField()
         textField.backgroundColor = .systemGray6
         textField.placeholder = "Email or Phone"
+        textField.text = "Evgeny"
         textField.textColor = .black
         textField.font = .systemFont(ofSize: 16, weight: .regular)
         textField.autocorrectionType = .no
@@ -53,6 +57,7 @@ class LogInViewController: UIViewController {
     
     private lazy var passwordTextField: UITextField = {
         let pwTextField = UITextField()
+        pwTextField.text = "Drozdov"
         pwTextField.backgroundColor = .systemGray6
         pwTextField.placeholder = "Password"
         pwTextField.textColor = .black
@@ -73,7 +78,7 @@ class LogInViewController: UIViewController {
         button.addTarget(self, action: #selector(moveToProfile), for: .touchUpInside)
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
-        
+    
     }()
     
     override func viewDidLoad() {
@@ -100,8 +105,20 @@ class LogInViewController: UIViewController {
     
     @objc func moveToProfile() {
         
-        let viewController = ProfileViewController()
-        navigationController?.pushViewController(viewController, animated: true)
+        guard let checkResults = LogInViewController.loginFactoryDelegate?.makeLoginInspector().check(login: loginTextField.text!, pass: passwordTextField.text!) else {
+            return }
+        
+        if checkResults {
+            guard let user = Checker.shared.user else { return }
+            let profileVC = ProfileViewController()
+            profileVC.newUser = user
+            navigationController?.pushViewController(profileVC, animated: true)
+        }
+        else {
+            let alert = UIAlertController(title: "Unknown login", message: "Please, enter correct user login", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Cancel", style: .cancel))
+            self.present(alert, animated: true)
+        }
         
     }
     
@@ -115,32 +132,32 @@ class LogInViewController: UIViewController {
         scrollView.addSubview(vkImageView)
         
         NSLayoutConstraint.activate([
-
+            
             scrollView.topAnchor.constraint(equalTo: view.topAnchor),
             scrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             scrollView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             scrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
-
-
+            
+            
             vkImageView.topAnchor.constraint(equalTo: scrollView.topAnchor, constant: 120),
             vkImageView.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor),
             vkImageView.widthAnchor.constraint(equalToConstant: 100),
             vkImageView.heightAnchor.constraint(equalToConstant: 100),
             vkImageView.bottomAnchor.constraint(equalTo: textFieldStackView.topAnchor, constant: -120),
-
-
+            
+            
             textFieldStackView.topAnchor.constraint(equalTo: vkImageView.bottomAnchor, constant: 120),
             textFieldStackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16),
             textFieldStackView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
             textFieldStackView.heightAnchor.constraint(equalToConstant: 100),
-
-
+            
+            
             loginButton.topAnchor.constraint(equalTo: textFieldStackView.bottomAnchor, constant: 16),
             loginButton.trailingAnchor.constraint(equalTo: textFieldStackView.trailingAnchor),
             loginButton.leadingAnchor.constraint(equalTo: textFieldStackView.leadingAnchor),
             loginButton.heightAnchor.constraint(equalToConstant: 50)
-
-            ])
+            
+        ])
         
         
     }
@@ -166,20 +183,20 @@ class LogInViewController: UIViewController {
             
         }
     }
+    
+    @objc private func didHideKeyboard(_ notification: Notification) {
         
-        @objc private func didHideKeyboard(_ notification: Notification) {
-            
-            hideKeyboard()
-            
-        }
-        
-        @objc private func hideKeyboard() {
-            
-            view.endEditing(true)
-            scrollView.setContentOffset(.zero, animated: true)
-            
-        }
+        hideKeyboard()
         
     }
     
+    @objc private func hideKeyboard() {
+        
+        view.endEditing(true)
+        scrollView.setContentOffset(.zero, animated: true)
+        
+    }
+    
+}
+
 
