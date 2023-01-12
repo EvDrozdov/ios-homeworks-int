@@ -78,7 +78,7 @@ class LogInViewController: UIViewController {
         button.addTarget(self, action: #selector(moveToProfile), for: .touchUpInside)
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
-        
+    
     }()
     
     override func viewDidLoad() {

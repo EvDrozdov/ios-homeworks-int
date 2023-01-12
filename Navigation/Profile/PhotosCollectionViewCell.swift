@@ -8,6 +8,7 @@
 import UIKit
 
 
+
 class PhotosCollectionViewCell: UICollectionViewCell {
     
     static var identifier: String = "photosTableViewCell"
@@ -18,7 +19,7 @@ class PhotosCollectionViewCell: UICollectionViewCell {
         avaImage.clipsToBounds = true
         avaImage.layer.cornerRadius = 6
         avaImage.translatesAutoresizingMaskIntoConstraints = false
-        return avaImage
+        return avaImage     
     }()
     
     override init(frame: CGRect) {
