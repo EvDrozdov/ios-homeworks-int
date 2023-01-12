@@ -16,7 +16,9 @@ protocol UserService {
 
  class User {
      let login: String
+
      let fullName: String   
+
      let avatarImage: UIImage
      let status: String
 

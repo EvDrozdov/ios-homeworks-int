@@ -7,10 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+
 		F71D6D19296B35400090A888 /* Checker.swift in Sources */ = {isa = PBXBuildFile; fileRef = F71D6D18296B35400090A888 /* Checker.swift */; };
 		F71D6D1B296B35A80090A888 /* LoginInspector.swift in Sources */ = {isa = PBXBuildFile; fileRef = F71D6D1A296B35A80090A888 /* LoginInspector.swift */; };
 		F71D6D1D296B35ED0090A888 /* LoginViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F71D6D1C296B35ED0090A888 /* LoginViewControllerDelegate.swift */; };
 		F71D6D1F296B3FC90090A888 /* LoginFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = F71D6D1E296B3FC90090A888 /* LoginFactory.swift */; };
+
 		F75F76712876238C007A8D76 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F75F76702876238C007A8D76 /* AppDelegate.swift */; };
 		F75F76732876238C007A8D76 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F75F76722876238C007A8D76 /* SceneDelegate.swift */; };
 		F76FCFD4296F3B8600A96AB7 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F76FCFD3296F3B8600A96AB7 /* CustomButton.swift */; };
@@ -18,8 +20,11 @@
 		F773CB4128CE1212008647CA /* ProfileHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F773CB3F28CE1212008647CA /* ProfileHeaderView.swift */; };
 		F78F6D55296DED020058C9B8 /* iOSIntPackage in Frameworks */ = {isa = PBXBuildFile; productRef = F78F6D54296DED020058C9B8 /* iOSIntPackage */; };
 		F792BE0A292E62E700A2A43F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F75F76792876238D007A8D76 /* Assets.xcassets */; };
+
 		F792BE14292E67B000A2A43F /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = F75EDBC028FD5C2200D3C913 /* Post.swift */; };
+
 		F7A3D86728EC2790005B602F /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7A3D86628EC2790005B602F /* LogInViewController.swift */; };
+		F7B069B62950911B0064C8FB /* iOSIntPackage in Frameworks */ = {isa = PBXBuildFile; productRef = F7B069B52950911B0064C8FB /* iOSIntPackage */; };
 		F7BF319A2906DFAF00A30A52 /* PostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7BF31992906DFAF00A30A52 /* PostTableViewCell.swift */; };
 		F7D42C732951FEA00034B03B /* Users.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7D42C722951FEA00034B03B /* Users.swift */; };
 		F7D9980428BE37D000E0A0A7 /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7D9980328BE37D000E0A0A7 /* FeedViewController.swift */; };
@@ -32,10 +37,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+
 		F71D6D18296B35400090A888 /* Checker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Checker.swift; sourceTree = "<group>"; };
 		F71D6D1A296B35A80090A888 /* LoginInspector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginInspector.swift; sourceTree = "<group>"; };
 		F71D6D1C296B35ED0090A888 /* LoginViewControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewControllerDelegate.swift; sourceTree = "<group>"; };
 		F71D6D1E296B3FC90090A888 /* LoginFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginFactory.swift; sourceTree = "<group>"; };
+
 		F75EDBC028FD5C2200D3C913 /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		F75F76702876238C007A8D76 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F75F76722876238C007A8D76 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -73,18 +80,22 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+
 		F75F76642876238C007A8D76 = {
 			isa = PBXGroup;
 			children = (
 				F75F766F2876238C007A8D76 /* Navigation */,
+
 				F76B28FE296C9A29008B6F69 /* Navigation.app */,
 				F78F6D52296DEC580058C9B8 /* StorageService.framework */,
+
 			);
 			sourceTree = "<group>";
 		};
@@ -110,8 +121,10 @@
 			children = (
 				F773CB3F28CE1212008647CA /* ProfileHeaderView.swift */,
 				F7D9980528BE37EE00E0A0A7 /* ProfileViewController.swift */,
+
 				F71D6D1E296B3FC90090A888 /* LoginFactory.swift */,
 				F76FCFD3296F3B8600A96AB7 /* CustomButton.swift */,
+
 				F7A3D86628EC2790005B602F /* LogInViewController.swift */,
 				F7BF31992906DFAF00A30A52 /* PostTableViewCell.swift */,
 				F7E8B6FC2910015D00D4BFE7 /* PhotosTableViewCell.swift */,
@@ -127,6 +140,7 @@
 			path = Profile;
 			sourceTree = "<group>";
 		};
+
 		F7D42C712951FE7B0034B03B /* Users */ = {
 			isa = PBXGroup;
 			children = (
@@ -135,6 +149,7 @@
 			path = Users;
 			sourceTree = "<group>";
 		};
+
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -142,19 +157,23 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
+
 		F75F766C2876238C007A8D76 /* Navigation */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = F75F76812876238D007A8D76 /* Build configuration list for PBXNativeTarget "Navigation" */;
 			buildPhases = (
+				FF1627A34094B9EEF8AA26BD /* [CP] Check Pods Manifest.lock */,
 				F75F76692876238C007A8D76 /* Sources */,
 				F75F766A2876238C007A8D76 /* Frameworks */,
 				F75F766B2876238C007A8D76 /* Resources */,
+
 			);
 			buildRules = (
 			);
@@ -162,6 +181,7 @@
 			);
 			name = Navigation;
 			packageProductDependencies = (
+
 				F78F6D54296DED020058C9B8 /* iOSIntPackage */,
 			);
 			productName = Navigation;
@@ -186,6 +206,7 @@
 			productReference = F78F6D52296DEC580058C9B8 /* StorageService.framework */;
 			productType = "com.apple.product-type.framework";
 		};
+
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -214,7 +235,9 @@
 			);
 			mainGroup = F75F76642876238C007A8D76;
 			packageReferences = (
+
 				F78F6D53296DED020058C9B8 /* XCRemoteSwiftPackageReference "iOSIntPackage" */,
+
 			);
 			productRefGroup = F75F76642876238C007A8D76;
 			projectDirPath = "";
@@ -244,13 +267,57 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		814799A255A8C1F69162A2EB /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Navigation/Pods-Navigation-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Navigation/Pods-Navigation-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Navigation/Pods-Navigation-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		FF1627A34094B9EEF8AA26BD /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Navigation-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		F75F76692876238C007A8D76 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				F7D9980A28BE39AA00E0A0A7 /* PostViewController.swift in Sources */,
+
 				F76FCFD4296F3B8600A96AB7 /* CustomButton.swift in Sources */,
+
 				F71D6D19296B35400090A888 /* Checker.swift in Sources */,
 				F75F76712876238C007A8D76 /* AppDelegate.swift in Sources */,
 				F7A3D86728EC2790005B602F /* LogInViewController.swift in Sources */,
@@ -263,7 +330,9 @@
 				F7D9980628BE37EE00E0A0A7 /* ProfileViewController.swift in Sources */,
 				F75F76732876238C007A8D76 /* SceneDelegate.swift in Sources */,
 				F7D42C732951FEA00034B03B /* Users.swift in Sources */,
+
 				F71D6D1F296B3FC90090A888 /* LoginFactory.swift in Sources */,
+
 				F7D9980828BE399700E0A0A7 /* InfoViewController.swift in Sources */,
 				F7BF319A2906DFAF00A30A52 /* PostTableViewCell.swift in Sources */,
 				F7E8B6FF2910023900D4BFE7 /* PhotosViewController.swift in Sources */,
@@ -417,6 +486,7 @@
 		};
 		F75F76822876238D007A8D76 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = AD96DA3865C5EADBF129CF49 /* Pods-Navigation.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -444,6 +514,7 @@
 		};
 		F75F76832876238D007A8D76 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6B5D809375C2129E753110BC /* Pods-Navigation.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -566,20 +637,24 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+
 		F78F6D53296DED020058C9B8 /* XCRemoteSwiftPackageReference "iOSIntPackage" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/TrueMax/iOSIntPackage.git";
 			requirement = {
 				branch = imagepublisher;
 				kind = branch;
+
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+
 		F78F6D54296DED020058C9B8 /* iOSIntPackage */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = F78F6D53296DED020058C9B8 /* XCRemoteSwiftPackageReference "iOSIntPackage" */;
+
 			productName = iOSIntPackage;
 		};
 /* End XCSwiftPackageProductDependency section */

@@ -6,10 +6,11 @@
 //
 
 import UIKit
+import iOSIntPackage
 
 class PostTableViewCell: UITableViewCell {
     
-
+    
     private(set) lazy var authorLabel: UILabel = {
         let authorLabel = UILabel()
         authorLabel.font = .systemFont(ofSize: 20, weight: .bold)
@@ -27,7 +28,7 @@ class PostTableViewCell: UITableViewCell {
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
     }()
-
+    
     private(set) lazy var descriptionLabel: UILabel = {
         let descriptionLabel = UILabel()
         descriptionLabel.font = .systemFont(ofSize: 14, weight: .regular)
@@ -36,7 +37,7 @@ class PostTableViewCell: UITableViewCell {
         descriptionLabel.translatesAutoresizingMaskIntoConstraints = false
         return descriptionLabel
     }()
-
+    
     private(set) lazy var likesViewsLabel: UILabel = {
         let likesViewsLabel = UILabel()
         likesViewsLabel.font = .systemFont(ofSize: 16, weight: .regular)
@@ -44,24 +45,24 @@ class PostTableViewCell: UITableViewCell {
         likesViewsLabel.translatesAutoresizingMaskIntoConstraints = false
         return likesViewsLabel
     }()
-        
+    
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         self.setupView()
     }
-        
+    
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         self.setupView()
     }
-        
+    
     private func setupView() {
         
         self.contentView.addSubview(authorLabel)
         self.contentView.addSubview(postImageView)
         self.contentView.addSubview(descriptionLabel)
         self.contentView.addSubview(likesViewsLabel)
-            
+        
         NSLayoutConstraint.activate([
             authorLabel.topAnchor.constraint(equalTo: self.contentView.topAnchor, constant: 16),
             authorLabel.leadingAnchor.constraint(equalTo: self.contentView.leadingAnchor),
@@ -74,14 +75,25 @@ class PostTableViewCell: UITableViewCell {
             descriptionLabel.topAnchor.constraint(equalTo: self.postImageView.bottomAnchor, constant: 16),
             descriptionLabel.leadingAnchor.constraint(equalTo: self.contentView.leadingAnchor),
             descriptionLabel.trailingAnchor.constraint(equalTo: self.contentView.trailingAnchor),
-
+            
             likesViewsLabel.topAnchor.constraint(equalTo: self.descriptionLabel.bottomAnchor, constant: 16),
             likesViewsLabel.leadingAnchor.constraint(equalTo: self.contentView.leadingAnchor, constant: 16),
             likesViewsLabel.trailingAnchor.constraint(equalTo: self.contentView.trailingAnchor),
             likesViewsLabel.bottomAnchor.constraint(equalTo: self.contentView.bottomAnchor, constant: -16),
-            ])
+        ])
+        
     }
     
+    func setup(with post: Post){
+        ImageProcessor().processImage(sourceImage: UIImage(named: post.image)!, filter: .tonal) { image in
+            postImageView.image = image
+            
+        }
+        
+        
+        
+    }
     
 }
+
 
