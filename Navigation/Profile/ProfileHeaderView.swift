@@ -8,6 +8,7 @@
 import UIKit
 import SnapKit
 
+
 class ProfileHeaderView: UITableViewHeaderFooterView{
     
     private lazy var profileHeaderView: UIView = {
@@ -102,51 +103,51 @@ class ProfileHeaderView: UITableViewHeaderFooterView{
         self.addSubview(self.catTextLabel)
         
         
-        //
-        //        NSLayoutConstraint.activate([
-        //
-        //            profileHeaderView.topAnchor.constraint(equalTo: topAnchor),
-        //            profileHeaderView.leadingAnchor.constraint(equalTo: leadingAnchor),
-        //            profileHeaderView.trailingAnchor.constraint(equalTo: trailingAnchor),
-        //            profileHeaderView.bottomAnchor.constraint(equalTo: bottomAnchor),
-        //
-        //            catAvatarImage.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 16),
-        //            catAvatarImage.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 16),
-        //            catAvatarImage.heightAnchor.constraint(equalToConstant: 100),
-        //            catAvatarImage.widthAnchor.constraint(equalToConstant: 100),
-        //
-        //            catTextLabel.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor, constant: 27),
-        //            catTextLabel.leadingAnchor.constraint(equalTo: self.catAvatarImage.trailingAnchor, constant: 16),
-        //
-        //            button.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor, constant: 16),
-        //            button.trailingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.trailingAnchor, constant: -16),
-        //            button.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -16),
-        //            button.topAnchor.constraint(equalTo: self.catAvatarImage.bottomAnchor, constant: 32),
-        //            button.heightAnchor.constraint(equalToConstant: 50),
-        //
-        //            textFild.bottomAnchor.constraint(equalTo: self.button.topAnchor, constant: -20),
-        //            textFild.heightAnchor.constraint(equalToConstant: 40),
-        //            textFild.leadingAnchor.constraint(equalTo: self.catAvatarImage.trailingAnchor, constant: 16),
-        //            textFild.trailingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.trailingAnchor, constant: -16),
-        //
-        //            statusLabel.bottomAnchor.constraint(equalTo: self.textFild.topAnchor, constant: 16),
-        //            statusLabel.heightAnchor.constraint(equalToConstant: 50),
-        //            statusLabel.leadingAnchor.constraint(equalTo: self.catAvatarImage.trailingAnchor, constant: 16)
-        //
-        //
-        //        ])
+        
+//                NSLayoutConstraint.activate([
+//
+//                    profileHeaderView.topAnchor.constraint(equalTo: topAnchor),
+//                    profileHeaderView.leadingAnchor.constraint(equalTo: leadingAnchor),
+//                    profileHeaderView.trailingAnchor.constraint(equalTo: trailingAnchor),
+//                    profileHeaderView.bottomAnchor.constraint(equalTo: bottomAnchor),
+//
+//                    catAvatarImage.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 16),
+//                    catAvatarImage.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 16),
+//                    catAvatarImage.heightAnchor.constraint(equalToConstant: 100),
+//                    catAvatarImage.widthAnchor.constraint(equalToConstant: 100),
+//
+//                    catTextLabel.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor, constant: 27),
+//                    catTextLabel.leadingAnchor.constraint(equalTo: self.catAvatarImage.trailingAnchor, constant: 16),
+//
+//                    button.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor, constant: 16),
+//                    button.trailingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.trailingAnchor, constant: -16),
+//                    button.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -16),
+//                    button.topAnchor.constraint(equalTo: self.catAvatarImage.bottomAnchor, constant: 32),
+//                    button.heightAnchor.constraint(equalToConstant: 50),
+//
+//                    textFild.bottomAnchor.constraint(equalTo: self.button.topAnchor, constant: -20),
+//                    textFild.heightAnchor.constraint(equalToConstant: 40),
+//                    textFild.leadingAnchor.constraint(equalTo: self.catAvatarImage.trailingAnchor, constant: 16),
+//                    textFild.trailingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.trailingAnchor, constant: -16),
+//
+//                    statusLabel.bottomAnchor.constraint(equalTo: self.textFild.topAnchor, constant: 16),
+//                    statusLabel.heightAnchor.constraint(equalToConstant: 50),
+//                    statusLabel.leadingAnchor.constraint(equalTo: self.catAvatarImage.trailingAnchor, constant: 16)
+//
+//
+//                ])
         
         
         profileHeaderView.snp.makeConstraints { make in
             make.edges.equalToSuperview()
         }
-        
+
         catAvatarImage.snp.makeConstraints { make in
             make.top.equalTo(16)
             make.size.equalTo(CGSize(width: 100, height: 100))
             make.leading.equalTo(16)
         }
-        
+
         catTextLabel.snp.makeConstraints { make in
             make.top.equalTo(27)
             make.leading.equalTo(catAvatarImage.snp.trailing).offset(16)
@@ -162,14 +163,14 @@ class ProfileHeaderView: UITableViewHeaderFooterView{
             make.trailing.equalTo(-16)
             make.bottom.equalTo(button.snp.top).offset(-20)
         }
-        
+
         button.snp.makeConstraints { make in
             make.leading.equalTo(16)
             make.trailing.equalTo(-16)
             make.bottom.equalTo(-16)
             make.top.equalTo(catAvatarImage.snp.bottom).offset(32)
             make.height.equalTo(50)
-        }
+       }
     }
     
     private var statusText: String = ""

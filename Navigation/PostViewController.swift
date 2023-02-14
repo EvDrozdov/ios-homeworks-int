@@ -10,18 +10,21 @@ import UIKit
 
 class PostViewController: UIViewController {
     
-    let feedViewController = FeedViewController()
-        
-        @objc func sendToInfoViewController(sender: UIButton) {
-            let viewControllerc = InfoViewController()
-            navigationController?.modalPresentationStyle = .fullScreen
-            navigationController?.pushViewController(viewControllerc, animated: true)
-        }
-    
-        override func viewDidLoad() {
-              super.viewDidLoad()
-            view.backgroundColor = .systemIndigo
-            navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Файлы", style: .done, target: self, action: #selector(sendToInfoViewController(sender:)))
-        }
+    var post: NewTitle?
 
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        setupSubviews()
+    }
+    
+    private func setupSubviews() {
+        view.backgroundColor = .systemMint
+        title = post?.title
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(tapAddModal))
+    }
+    
+    @objc private func tapAddModal() {
+        present(InfoViewController(), animated: true, completion: nil)
+    }
 }
+

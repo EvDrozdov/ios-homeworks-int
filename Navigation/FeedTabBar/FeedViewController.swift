@@ -8,7 +8,10 @@
 import UIKit
 
 class FeedViewController: UIViewController {
-     
+    
+    weak var coordinator: FeedCoordinator?
+    var titile: NewTitle = NewTitle(title: "New Title")
+    
 
      private lazy var stackView: UIStackView = {
          let stack = UIStackView()
@@ -67,8 +70,7 @@ class FeedViewController: UIViewController {
      }
 
      private func postTap() {
-         let postVC = PostViewController()
-         navigationController?.pushViewController(postVC, animated: true)
+         coordinator?.toPostViewController(send: titile )
      }
 
      private func setupSubviews() {

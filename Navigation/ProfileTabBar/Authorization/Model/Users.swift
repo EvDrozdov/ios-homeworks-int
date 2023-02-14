@@ -8,6 +8,13 @@
 
 import UIKit
 
+struct Title {
+    var title: String
+    init(title: String) {
+        self.title = title
+    }
+}
+
 
 
 protocol UserService {

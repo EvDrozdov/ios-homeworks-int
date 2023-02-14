@@ -7,12 +7,20 @@
 
 import UIKit
 
+
+
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
+    var coordinator: TabbarCoordinatorProtocol?
+
 
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
+        
+        let tabController = UITabBarController()
+                coordinator = TabbarCoordinator(tabbarController: tabController)
+                coordinator?.start()
         
         if #available(iOS 15, *) {
             let appearence = UINavigationBarAppearance()
@@ -27,18 +35,18 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         LogInViewController.loginFactoryDelegate = MyLoginFactory()
         
         self.window = UIWindow(windowScene: windowScene)
-        let userFeedController = UINavigationController(rootViewController: FeedViewController())
-        let loginViewController = UINavigationController(rootViewController: loginVC)
+//        let userFeedController = UINavigationController(rootViewController: FeedViewController())
+//        let loginViewController = UINavigationController(rootViewController: loginVC)
         let tabBarController = UITabBarController()
         
-        tabBarController.viewControllers = [userFeedController, loginViewController]
+//        tabBarController.viewControllers = [userFeedController, loginViewController]
         tabBarController.viewControllers?.enumerated().forEach {
             $1.tabBarItem.title = $0 == 0 ? "Feed" : "Profile"
             $1.tabBarItem.image = $0 == 0
                     ? UIImage(systemName: "list.bullet.rectangle.portrait.fill")
                     : UIImage(systemName: "brain.head.profile")
         }
-        self.window?.rootViewController = tabBarController
+        self.window?.rootViewController = tabController
         self.window?.makeKeyAndVisible()
         
 

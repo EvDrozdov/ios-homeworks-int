@@ -5,10 +5,17 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/TrueMax/iOSIntPackage.git",
       "state" : {
-
         "branch" : "imagepublisher",
         "revision" : "e1cc0e1b76d7cb8f770d903d85ae9ed91ae026bd"
-
+      }
+    },
+    {
+      "identity" : "snapkit",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/SnapKit/SnapKit.git",
+      "state" : {
+        "revision" : "f222cbdf325885926566172f6f5f06af95473158",
+        "version" : "5.6.0"
       }
     }
   ],

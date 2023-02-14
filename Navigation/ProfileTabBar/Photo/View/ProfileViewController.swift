@@ -15,6 +15,8 @@ class ProfileViewController: UIViewController{
     var startPoint: CGPoint?
     var cornerRadiusAvatar: CGFloat?
     var newUser: User? = nil
+    weak var coordinator: ProfileCoordinator?
+    var currentUser: User?
     
     public lazy var catImageView: UIImageView = {
         let avatarImageView = UIImageView()
