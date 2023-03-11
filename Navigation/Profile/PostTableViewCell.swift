@@ -85,7 +85,7 @@ class PostTableViewCell: UITableViewCell {
     }
     
     func setup(with post: Post){
-        ImageProcessor().processImage(sourceImage: UIImage(named: post.image)!, filter: .tonal) { image in
+        ImageProcessor().processImage(sourceImage: UIImage(named: post.image)!, filter: .fade) { image in
             postImageView.image = image
             
         }

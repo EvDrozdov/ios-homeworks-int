@@ -6,20 +6,16 @@
 //
 
 import UIKit
-
 import iOSIntPackage
 
-
-
-
 class PhotosViewController: UIViewController {
-
+    
+    var arraOfImages = [UIImage]()
+    var arrayOfFineshedImages = [UIImage]()
+    
     var textTitle: String?
     
     private let postImage = PostImage.setupImages()
-    
-    private var recivedImages: [UIImage] = []
-    private let imagesFacade = ImagePublisherFacade()
     
     private enum Constants {
         static let numberOfLine: CGFloat = 3
@@ -45,31 +41,47 @@ class PhotosViewController: UIViewController {
         return collectionView
     }()
     
+    private var dataSource: [String] = []
+    private func createData() {
+        
+        for num in 1...20 {
+            dataSource.append("\(num).jpg")
+        }
+        
+        for image in dataSource {
+            arraOfImages.append((UIImage(named: image) ?? UIImage(named:"1.jpg"))!)
+        }
+        
+        let start = DispatchTime.now()
+        ImageProcessor().processImagesOnThread(sourceImages: arraOfImages, filter: .fade, qos: .background) {
+            [weak self] chekedImages in DispatchQueue.main.async {
+                self?.arrayOfFineshedImages = chekedImages.compactMap {image in
+                    if let image = image{
+                        return UIImage(cgImage: image)
+                    } else {
+                        return nil
+                    }
+                }
+                let end = DispatchTime.now()
+                
+                let time = end.uptimeNanoseconds - start.uptimeNanoseconds
+                self?.collectionView.reloadData()
+                
+                let timeInterval = Double(time) / 1_000_000_000
+                print("Время обработки: \(timeInterval)")
+                
+                // Результат : userInteractive + tonal Время обработки: 9.234091895
+                // Рещультат : background + fade Время обработки: 8.80964687
+                
+            }
+        }
+        
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupCollectionView()
-        makeData()
-        setupObserver()
-    }
-    
-    override func viewDidDisappear(_ animated: Bool) {
-        imagesFacade.removeSubscription(for: self)
-    }
-    
-    private var data : [String] = []
-    private func makeData() {
-        for num in 1...20 {
-            data.append("\(num).jpg")
-        }
-    }
-    
-    private func setupObserver() {
-        var array2: [UIImage] = []
-        imagesFacade.subscribe(self)
-        data.forEach { i in array2.append(UIImage(named: i)!)
-            
-        }
-        imagesFacade.addImagesWithTimer(time: 2, repeat: 20, userImages: array2)
+        createData()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -100,12 +112,12 @@ class PhotosViewController: UIViewController {
 }
 extension PhotosViewController: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return recivedImages.count
+        return postImage.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PhotoCell", for: indexPath) as? PhotosCollectionViewCell else { return collectionView.dequeueReusableCell(withReuseIdentifier: "defaultcell", for: indexPath)}
-        let avaImage = postImage[indexPath.row]
+        let avaImage = postImage[indexPath.item]
         cell.setup(with: avaImage)
         return cell
     }
@@ -122,12 +134,5 @@ extension PhotosViewController: UICollectionViewDataSource, UICollectionViewDele
         let itemwidth = floor(needed / Constants.numberOfLine)
         print(itemwidth)
         return CGSize(width: itemwidth, height: itemwidth)
-    }
-}
-
-extension PhotosViewController: ImageLibrarySubscriber {
-    func receive(images: [UIImage]) {
-        recivedImages = images
-        collectionView.reloadData()
     }
 }
