@@ -10,12 +10,12 @@ import iOSIntPackage
 
 class PhotosViewController: UIViewController {
     
-    var arraOfImages = [UIImage]()
+    var arrayOfImages = [UIImage]()
     var arrayOfFineshedImages = [UIImage]()
     
     var textTitle: String?
     
-    private let postImage = PostImage.setupImages()
+    //private var postImage = PostImage.setupImages()
     
     private enum Constants {
         static let numberOfLine: CGFloat = 3
@@ -49,11 +49,11 @@ class PhotosViewController: UIViewController {
         }
         
         for image in dataSource {
-            arraOfImages.append((UIImage(named: image) ?? UIImage(named:"1.jpg"))!)
+            arrayOfImages.append((UIImage(named: image) ?? UIImage(named:"1.jpg"))!)
         }
         
         let start = DispatchTime.now()
-        ImageProcessor().processImagesOnThread(sourceImages: arraOfImages, filter: .fade, qos: .background) {
+        ImageProcessor().processImagesOnThread(sourceImages: arrayOfImages, filter: .noir, qos: .background) {
             [weak self] chekedImages in DispatchQueue.main.async {
                 self?.arrayOfFineshedImages = chekedImages.compactMap {image in
                     if let image = image{
@@ -112,14 +112,19 @@ class PhotosViewController: UIViewController {
 }
 extension PhotosViewController: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return postImage.count
+        return arrayOfImages.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PhotoCell", for: indexPath) as? PhotosCollectionViewCell else { return collectionView.dequeueReusableCell(withReuseIdentifier: "defaultcell", for: indexPath)}
-        let avaImage = postImage[indexPath.item]
-        cell.setup(with: avaImage)
-        return cell
+        if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PhotoCell", for: indexPath) as? PhotosCollectionViewCell {
+            let image = arrayOfFineshedImages[indexPath.row]
+            cell.setup(for: image)
+            
+            return cell
+        } else {
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "DefaultCell", for: indexPath)
+            return cell
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {

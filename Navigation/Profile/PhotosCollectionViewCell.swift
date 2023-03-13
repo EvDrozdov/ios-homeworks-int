@@ -14,7 +14,7 @@ class PhotosCollectionViewCell: UICollectionViewCell {
     static var identifier: String = "photosTableViewCell"
     
      lazy var avaImage: UIImageView = {
-       let avaImage = UIImageView()
+       let image = UIImageView()
         avaImage.contentMode = .scaleAspectFill
         avaImage.clipsToBounds = true
         avaImage.layer.cornerRadius = 6
@@ -40,8 +40,8 @@ class PhotosCollectionViewCell: UICollectionViewCell {
             avaImage.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
         ])
     }
-    func setup(with post: PostImage) {
-        avaImage.image = UIImage(named:post.image)
+    func setup(for post: UIImage) {
+        self.avaImage.image = post
     }
     
 }
