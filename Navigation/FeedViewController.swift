@@ -23,13 +23,11 @@ class FeedViewController: UIViewController {
         return stack
     }()
     
-    private lazy var button1 = CustomButton(customTitle: "Button one") {
-        self.postTap()
-    }
+    private lazy var button1 = CustomButton(title: "Button One", titleColor: .black, backgroundButtonColor: .green, clipsToBoundsOfButton: true, cornerRadius: 3, autoLayout: false)
     
-    private lazy var button2 = CustomButton(customTitle: "Button two") {
-        self.postTap()
-    }
+    
+    private lazy var button2 = CustomButton(title: "Button Two", titleColor: .black, backgroundButtonColor: .yellow, clipsToBoundsOfButton: true, cornerRadius: 10, autoLayout: false)
+    
     
     private var checkTextField: UITextField = {
         let tf = UITextField()
@@ -50,45 +48,46 @@ class FeedViewController: UIViewController {
     }()
     
     @objc private func startTimer(){
-            //  даем 15 с на ввод слова пользователю. Если не успел, то поднимаем Аларм и считаем такие алармы
-            // таймер (счетчик) отключаем только тогда, когда введено слово + отправлено на проверку
-            if timer == nil {
-                timer = Timer(timeInterval: 15.0,
-                              target: self,
-                              selector: #selector(alarmNote),
-                              userInfo: nil,
-                              repeats: true)
-                RunLoop.main.add(timer!, forMode: .default)
-            }}
-
-        @objc private func alarmNote(){
-            countOfUnsecTr += 1
-            let alarm = UIAlertController(title: "Время для проверки слова истекло",
-                                          message: "Попробуйте снова, но быстрее",
-                                          preferredStyle: .alert)
-            let alarmAction = UIAlertAction(title: "ОК",
-                                            style: .default)
-            alarm.addAction(alarmAction)
-            present(alarm, animated: true)
-        }
+        //  даем 15 с на ввод слова пользователю. Если не успел, то поднимаем Аларм и считаем такие алармы
+        // таймер (счетчик) отключаем только тогда, когда введено слово + отправлено на проверку
+        if timer == nil {
+            timer = Timer(timeInterval: 15.0,
+                          target: self,
+                          selector: #selector(alarmNote),
+                          userInfo: nil,
+                          repeats: true)
+            RunLoop.main.add(timer!, forMode: .default)
+        }}
     
-    private lazy var checkButton = CustomButton(customTitle: "Check") {
-        guard let checkedSecret = self.checkTextField.text else { return }
-        
-        if !checkedSecret.isEmpty {
-            if FeedModel().check(word: checkedSecret) {
-                self.checkLabel.text = "Correct"
-                self.checkLabel.textColor = .green
-                self.timer?.invalidate()
-            } else {
-                self.checkLabel.textColor = .red
-                self.checkLabel.text = "Wrong "
-            }
-        } else {
-            self.checkLabel.text = "Empty "
-        }
+    @objc private func alarmNote(){
+        countOfUnsecTr += 1
+        let alarm = UIAlertController(title: "Время для проверки слова истекло",
+                                      message: "Попробуйте снова, но быстрее",
+                                      preferredStyle: .alert)
+        let alarmAction = UIAlertAction(title: "ОК",
+                                        style: .default)
+        alarm.addAction(alarmAction)
+        present(alarm, animated: true)
     }
     
+   private lazy var checkButton = CustomButton(title: "Chek", titleColor: .black, backgroundButtonColor: .darkGray, clipsToBoundsOfButton: true, cornerRadius: 20, autoLayout: false)
+//    {
+////        guard let checkedSecret = self.checkTextField.text else { return }
+////
+////        if !checkedSecret.isEmpty {
+////            if FeedModel().check(word: checkedSecret) {
+////                self.checkLabel.text = "Correct"
+////                self.checkLabel.textColor = .green
+////                self.timer?.invalidate()
+////            } else {
+////                self.checkLabel.textColor = .red
+////                self.checkLabel.text = "Wrong "
+////            }
+////        } else {
+////            self.checkLabel.text = "Empty "
+////        }
+//  }
+//
     override func viewDidLoad() {
         super.viewDidLoad()
         setupSubviews()
