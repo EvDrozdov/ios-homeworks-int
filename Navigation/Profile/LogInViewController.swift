@@ -12,6 +12,26 @@ class LogInViewController: UIViewController {
     var loginDelegate: LoginViewControllerDelegate?
     static var loginFactoryDelegate: LoginFactory?
     
+    let concurrentQuee = DispatchQueue(label: "queueForPassword",
+                                       qos: .userInteractive,
+                                       attributes: [.concurrent])
+    
+    private lazy var selectPasswordButton: CustomButton = {
+        let buttom = CustomButton(title: "Подобрать пароль", titleColor: .white, backgroundButtonColor: .blue, clipsToBoundsOfButton: true, cornerRadius: 10, autoLayout: false)
+        buttom.addTargetForButton = { self.makePassword() }
+        return buttom
+    }()
+    
+    private lazy var activityIndicator: UIActivityIndicatorView = {
+        let indicator = UIActivityIndicatorView(style: .medium)
+        indicator.startAnimating()
+        indicator.color = .black
+        indicator.hidesWhenStopped = true
+        indicator.isHidden = true
+        indicator.translatesAutoresizingMaskIntoConstraints = false
+        return indicator
+    }()
+    
     private lazy var scrollView: UIScrollView = {
         let scrollView = UIScrollView()
         scrollView.translatesAutoresizingMaskIntoConstraints = false
@@ -31,6 +51,7 @@ class LogInViewController: UIViewController {
         let stackView = UIStackView()
         stackView.addArrangedSubview(loginTextField)
         stackView.addArrangedSubview(passwordTextField)
+        stackView.addArrangedSubview(selectPasswordButton)
         stackView.distribution = .fillEqually
         stackView.axis = .vertical
         stackView.layer.borderWidth = 0.5
@@ -78,7 +99,7 @@ class LogInViewController: UIViewController {
         button.addTarget(self, action: #selector(moveToProfile), for: .touchUpInside)
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
-    
+        
     }()
     
     override func viewDidLoad() {
@@ -130,6 +151,7 @@ class LogInViewController: UIViewController {
         scrollView.addSubview(loginButton)
         scrollView.addSubview(textFieldStackView)
         scrollView.addSubview(vkImageView)
+        view.addSubview(activityIndicator)
         
         NSLayoutConstraint.activate([
             
@@ -155,7 +177,11 @@ class LogInViewController: UIViewController {
             loginButton.topAnchor.constraint(equalTo: textFieldStackView.bottomAnchor, constant: 16),
             loginButton.trailingAnchor.constraint(equalTo: textFieldStackView.trailingAnchor),
             loginButton.leadingAnchor.constraint(equalTo: textFieldStackView.leadingAnchor),
-            loginButton.heightAnchor.constraint(equalToConstant: 50)
+            loginButton.heightAnchor.constraint(equalToConstant: 50),
+            
+            activityIndicator.leadingAnchor.constraint(equalTo: loginTextField.trailingAnchor, constant: -26),
+            activityIndicator.centerYAnchor.constraint(equalTo: loginTextField.centerYAnchor, constant: 28),
+            
             
         ])
         
@@ -188,6 +214,41 @@ class LogInViewController: UIViewController {
         
         hideKeyboard()
         
+    }
+    
+    @objc private func makePassword(){
+        // показали AI
+        setupActivityIndicator()
+        // создали переменную, в которую вернем с потока сгенерированный пароль (брутфорс)
+        var setPasswordBetweenQueue: String = ""
+        
+        // запустили подбор пароля, его вернем
+        concurrentQuee.async {
+            setPasswordBetweenQueue = self.comparePasswords()
+            // синхронизировали потоки
+            DispatchQueue.main.async {
+                self.passwordTextField.text = setPasswordBetweenQueue
+                self.passwordTextField.isSecureTextEntry = false
+                self.deSetupActivityIndicator()
+            }
+        }
+    }
+    
+    private func comparePasswords() -> String {
+        // количество символов задаем
+        let randomPassword = String.createRandomPassword(for: 3)
+        let brutePassword = BruteForce().bruteForce(passwordToUnlock: randomPassword)
+        return brutePassword
+    }
+    
+    private func setupActivityIndicator(){
+        activityIndicator.isHidden = false
+        activityIndicator.startAnimating()
+    }
+    
+    private func deSetupActivityIndicator(){
+        activityIndicator.stopAnimating()
+        activityIndicator.isHidden = true
     }
     
     @objc private func hideKeyboard() {

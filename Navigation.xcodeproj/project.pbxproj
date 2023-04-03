@@ -13,6 +13,8 @@
 		F71D6D1F296B3FC90090A888 /* LoginFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = F71D6D1E296B3FC90090A888 /* LoginFactory.swift */; };
 		F75F76712876238C007A8D76 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F75F76702876238C007A8D76 /* AppDelegate.swift */; };
 		F75F76732876238C007A8D76 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F75F76722876238C007A8D76 /* SceneDelegate.swift */; };
+		F76D1CF429D975620051E260 /* RandomPassword.swift in Sources */ = {isa = PBXBuildFile; fileRef = F76D1CF329D975620051E260 /* RandomPassword.swift */; };
+		F76D1CF629D9758D0051E260 /* BruteForce.swift in Sources */ = {isa = PBXBuildFile; fileRef = F76D1CF529D9758D0051E260 /* BruteForce.swift */; };
 		F76FCFD4296F3B8600A96AB7 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F76FCFD3296F3B8600A96AB7 /* CustomButton.swift */; };
 		F76FCFD7296F416600A96AB7 /* FeedModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F76FCFD6296F416600A96AB7 /* FeedModel.swift */; };
 		F773CB4128CE1212008647CA /* ProfileHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F773CB3F28CE1212008647CA /* ProfileHeaderView.swift */; };
@@ -44,6 +46,8 @@
 		F75F767C2876238D007A8D76 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F75F767E2876238D007A8D76 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F76B28FE296C9A29008B6F69 /* Navigation.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Navigation.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		F76D1CF329D975620051E260 /* RandomPassword.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomPassword.swift; sourceTree = "<group>"; };
+		F76D1CF529D9758D0051E260 /* BruteForce.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BruteForce.swift; sourceTree = "<group>"; };
 		F76FCFD3296F3B8600A96AB7 /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 		F76FCFD6296F416600A96AB7 /* FeedModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedModel.swift; sourceTree = "<group>"; };
 		F773CB3F28CE1212008647CA /* ProfileHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileHeaderView.swift; sourceTree = "<group>"; };
@@ -104,6 +108,8 @@
 				F71D6D1E296B3FC90090A888 /* LoginFactory.swift */,
 				F76FCFD3296F3B8600A96AB7 /* CustomButton.swift */,
 				F7A3D86628EC2790005B602F /* LogInViewController.swift */,
+				F76D1CF329D975620051E260 /* RandomPassword.swift */,
+				F76D1CF529D9758D0051E260 /* BruteForce.swift */,
 				F7BF31992906DFAF00A30A52 /* PostTableViewCell.swift */,
 				F7E8B6FC2910015D00D4BFE7 /* PhotosTableViewCell.swift */,
 				F76FCFD6296F416600A96AB7 /* FeedModel.swift */,
@@ -201,6 +207,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F76D1CF629D9758D0051E260 /* BruteForce.swift in Sources */,
 				F7D9980A28BE39AA00E0A0A7 /* PostViewController.swift in Sources */,
 				F76FCFD4296F3B8600A96AB7 /* CustomButton.swift in Sources */,
 				F71D6D19296B35400090A888 /* Checker.swift in Sources */,
@@ -208,6 +215,7 @@
 				F7A3D86728EC2790005B602F /* LogInViewController.swift in Sources */,
 				F7E8B6FD2910015D00D4BFE7 /* PhotosTableViewCell.swift in Sources */,
 				F792BE14292E67B000A2A43F /* Post.swift in Sources */,
+				F76D1CF429D975620051E260 /* RandomPassword.swift in Sources */,
 				F76FCFD7296F416600A96AB7 /* FeedModel.swift in Sources */,
 				F7E8B7012910031200D4BFE7 /* PhotosCollectionViewCell.swift in Sources */,
 				F7D9980428BE37D000E0A0A7 /* FeedViewController.swift in Sources */,
