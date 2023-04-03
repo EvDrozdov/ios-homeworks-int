@@ -179,8 +179,8 @@ class LogInViewController: UIViewController {
             loginButton.leadingAnchor.constraint(equalTo: textFieldStackView.leadingAnchor),
             loginButton.heightAnchor.constraint(equalToConstant: 50),
             
-            activityIndicator.leadingAnchor.constraint(equalTo: textFieldStackView.trailingAnchor, constant: -26),
-            activityIndicator.centerYAnchor.constraint(equalTo: textFieldStackView.centerYAnchor, constant: 26),
+            activityIndicator.leadingAnchor.constraint(equalTo: loginTextField.trailingAnchor, constant: -26),
+            activityIndicator.centerYAnchor.constraint(equalTo: loginTextField.centerYAnchor, constant: 28),
             
             
         ])
